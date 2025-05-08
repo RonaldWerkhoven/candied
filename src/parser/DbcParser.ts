@@ -199,7 +199,7 @@ export default class DbcParser extends Parser {
     message.description = null;
     message.attributes = new Map();
     message.signalGroups = new Map();
-    dbc.messages.set(message.name, message);
+    dbc.messages.set(message.id.toString(), message);
   }
 
   private addSignalMultiplexValue(dbc: DbcData, data: SignalMultiplexVal) {

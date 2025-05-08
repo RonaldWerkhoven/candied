@@ -128,10 +128,8 @@ class BitUtils {
     if (endian === 'Intel') {
       startOfBit = length - startBit - bitRange;
     } else {
-      const endOfBitField = 8 * Math.floor(startBit / 8) + (7 - (startBit % 8));
-      // Need to account for sawtooth bit numbering in CAN messages
-      startOfBit = endOfBitField - bitRange + 1;
-      // startOfBit = length - (length - startBit + bitRange);
+      startOfBit = 8 * Math.floor(startBit / 8) + (7 - (startBit % 8));
+      //startOfBit = endOfBitField - bitRange + 1; // for now commenting this reversersed left to right to right to left
     }
     return startOfBit;
   }
